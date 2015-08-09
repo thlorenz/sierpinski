@@ -12,22 +12,26 @@ function defineTriangle(length) {
 }
 
 function drawTriangle(coords) {
-  ctx.fillRect(coords[0].x, coords[0].y, 5, 5);
-  ctx.fillRect(coords[1].x, coords[1].y, 5, 5);
-  ctx.fillRect(coords[2].x, coords[2].y, 5, 5);
+  ctx.fillRect(coords[0].x, coords[0].y, 2, 2);
+  ctx.fillRect(coords[1].x, coords[1].y, 2, 2);
+  ctx.fillRect(coords[2].x, coords[2].y, 2, 2);
 }
 
 function calculateNext(p, triang) {
   const rand = Math.floor(Math.random() * 3);
   const corner = triang[rand];
   return {
-    x: (p.x + corner.x) / 2,
-    y: (p.y + corner.y) / 2,
+    x   : (p.x + corner.x) / 2,
+    y   : (p.y + corner.y) / 2,
+    col : rand
   }
 }
 
 function nextPoint(current) {
   const next = calculateNext(current, triang);
+  ctx.fillStyle = 
+    next.col === 0 ? 'red' :
+    next.col === 1 ? 'green' : 'blue';
   ctx.fillRect(next.x, next.y, 1, 1);
   setTimeout(nextPoint.bind(null, next), 0);
 }
