@@ -11,12 +11,6 @@ function defineTriangle(length) {
   ]
 }
 
-function drawTriangle(coords) {
-  ctx.fillRect(coords[0].x, coords[0].y, 2, 2);
-  ctx.fillRect(coords[1].x, coords[1].y, 2, 2);
-  ctx.fillRect(coords[2].x, coords[2].y, 2, 2);
-}
-
 function calculateNext(p, triang) {
   const rand = Math.floor(Math.random() * 3);
   const corner = triang[rand];
@@ -37,8 +31,5 @@ function nextPoint(current) {
 }
 
 const triang = defineTriangle(590);
-drawTriangle(triang);
-
-var start = { x: 10, y: 10 };
-
+const start = { x: 10, y: 10 };
 nextPoint(start, triang);
