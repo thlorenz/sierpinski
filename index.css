@@ -1,0 +1,12 @@
+#canvas {
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 10px;
+  margin-left: 100px;
+  padding: 10px;
+}
+
+h3 {
+  margin: 10px;
+  margin-left: 100px;
+}
